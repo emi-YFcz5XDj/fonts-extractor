@@ -14,7 +14,7 @@ jobs:
           find /System/Library/PrivateFrameworks/FontServices.framework/Versions/A/Resources/Fonts/Subsets/ -type f -exec cp {} fonts/ \;
           for i in PingFangHK-Light.otf PingFangHK-Medium.otf PingFangHK-Regular.otf PingFangHK-Semibold.otf PingFangHK-Thin.otf PingFangHK-Ultralight.otf; do curl -sLo fonts/$i https://github.com/ZWolken/PingFang/raw/refs/heads/main/$i; done
       - name: Upload fonts artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: fonts-mac
           path: fonts/
@@ -35,7 +35,7 @@ jobs:
           curl -sLo roboto.zip $(curl -s https://api.github.com/repos/googlefonts/roboto-3-classic/releases/latest | jq -r '.assets[0].browser_download_url')
           unzip -j -q roboto.zip "android/static/*" -d android
       - name: Upload fonts artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: fonts-android
           path: android/
